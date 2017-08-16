@@ -14,7 +14,6 @@ class App extends Component {
     this.state = {
       districts: []
     }
-
   }
 
 
@@ -22,7 +21,7 @@ class App extends Component {
   searchForDistricts(searchString) {
     this.setState({
       districts: this.districtRepo.findAllMatches(searchString)
-    })
+    }, () => {this.districtRepo.compareDistrictAverages('ACADEMY 20', 'YUMA SCHOOL DISTRICT 1')})
   }
 
   componentDidMount() {
