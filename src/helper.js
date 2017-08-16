@@ -15,7 +15,8 @@ export default class DistrictRepository {
       // already exists
       const unroundedData = parseFloat(district.Data);
       // THE PLUS here strips out extra 0's (i'd like not to use it, and have the 0's in there)
-      const roundedData = (isNaN(unroundedData)) ? 0 : +unroundedData.toFixed(3);
+      //                                              +unroundedData
+      const roundedData = (isNaN(unroundedData)) ? 0 : unroundedData.toFixed(3);
       acum[district.Location].data[district.TimeFrame] = roundedData;
       // //START TESTING
       // if (acum[district.Location].location === 'ACADEMY 20') {
