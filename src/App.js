@@ -17,8 +17,9 @@ class App extends Component {
 
   }
 
+
+
   searchForDistricts(searchString) {
-    console.log('SEARCH STRING:', searchString);
     this.setState({
       districts: this.districtRepo.findAllMatches(searchString)
     })
@@ -26,9 +27,10 @@ class App extends Component {
 
   componentDidMount() {
     this.districtRepo = new DistrictRepository(kinderData);
-    this.setState({
-      districts: this.districtRepo.findAllMatches('colo')
-    })
+    // this.setState({
+    //   districts: this.districtRepo.findAllMatches('colo')
+    // })
+    this.searchForDistricts('colo')
   }
 
   render() {
