@@ -7,7 +7,7 @@ export default class DistrictRepository {
   }
 
   calcAvg(formattedData) {
-    
+
     const districtNames = Object.keys(formattedData);
     const districtsWithAvgs = districtNames.reduce((acum, districtName) => {
 
@@ -65,16 +65,41 @@ export default class DistrictRepository {
     return formattedDataWithAvg;
   }
 
+  compareDistrictAverages(districtAName, districtBName) {
+    const districtA = this.findByName(districtAName);
+    const districtB = this.findByName(districtBName);
+
+    if (!districtA || !districtB) {
+      return undefined;
+    }
+
+    const comparedAverage = parseFloat(districtA.average) / parseFloat(districtB.average)
+
+    // need to determine if we want to return the averages as a string
+    // which means we can preserve the formatting with padded 0's
+    // otherwise we should like parse Float to return as floats
+    return {
+      [districtA.location]: districtA.average,
+      [districtB.location]: districtB.average,
+      compared: comparedAverage.toFixed(3)
+    }
+    // console.log('COMPARE OBJ:', compareObj);
+  }
+
+  findAverage(districtName) {
+    const district = this.findByName(districtName);
+    return district.average;
+  }
+
   findByName(nameToFind) {
     if (!nameToFind) {
       return undefined;
-    } else {
-      const listOfLocations = Object.keys(this.data);
-      const findResult = listOfLocations.find(location => location.toUpperCase() === nameToFind.toUpperCase());
-      return findResult ? this.data[findResult] : undefined;
     }
-  }
 
+    const listOfLocations = Object.keys(this.data);
+    const findResult = listOfLocations.find(location => location.toUpperCase() === nameToFind.toUpperCase());
+    return findResult ? this.data[findResult] : undefined;
+  }
 
   findAllMatches(nameToFind) {
     const findResults = [];
