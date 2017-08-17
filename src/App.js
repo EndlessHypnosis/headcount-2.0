@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../styles/App.css';
 import DistrictList from './DistrictList'
 import Search from './Search'
 
@@ -21,8 +21,12 @@ class App extends Component {
   searchForDistricts(searchString) {
     this.setState({
       districts: this.districtRepo.findAllMatches(searchString)
-    }, () => {this.districtRepo.compareDistrictAverages('ACADEMY 20', 'YUMA SCHOOL DISTRICT 1')})
+    })
   }
+  // callback function example for between }) in setState:
+  // , () => {this.districtRepo.compareDistrictAverages('ACADEMY 20', 'YUMA SCHOOL DISTRICT 1')}
+
+
 
   componentDidMount() {
     this.districtRepo = new DistrictRepository(kinderData);
@@ -34,9 +38,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Search searchForDistricts={ this.searchForDistricts.bind(this) } />
-        <DistrictList districts={ this.state.districts } />
+      <div className="app-wrapper">
+        <div className="header-section">
+          <p className="header-title">Headcount 2.0</p>
+        </div>
+        <div className="main-section">
+          <div className="main-header">
+            <p className="main-title">Districts</p>
+            <Search searchForDistricts={ this.searchForDistricts.bind(this) } />
+          </div>
+          <DistrictList districts={ this.state.districts } />
+        </div>
       </div>
     );
   }
