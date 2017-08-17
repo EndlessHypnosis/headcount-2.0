@@ -1,5 +1,6 @@
 import React from 'react';
 import District from './District';
+import '../styles/DistrictList.css';
 
 const DistrictList = ({ districts }) => {
 
@@ -12,7 +13,7 @@ const DistrictList = ({ districts }) => {
 
 
   return (
-    <div>
+    <div className="district-list">
       {districtsToOutput}
     </div>
   )
