@@ -17,7 +17,7 @@ export default class DistrictRepository {
         //               `District[${formattedData[districtName].location}]
         //               ${year}:${formattedData[districtName].data[year]}` : ''
         //            );
-        acum = acum + parseFloat(formattedData[districtName].data[year])
+        acum += parseFloat(formattedData[districtName].data[year])
         return acum;
       }, 0.0)
 
@@ -105,7 +105,7 @@ export default class DistrictRepository {
     const findResults = [];
 
     const listOfLocations = Object.keys(this.data);
-    const filterResults = listOfLocations.forEach(location => {
+    listOfLocations.forEach(location => {
 
       if (!nameToFind) {
         findResults.push(this.data[location]);
