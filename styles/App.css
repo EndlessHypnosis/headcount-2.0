@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
 .app-wrapper {
@@ -21,7 +22,7 @@
 
 .header-title {
   /*margin-right: 20px;*/
-  /*font-family: 'Bangers', cursive;*/
+  font-family: 'Roboto', sans-serif;
   font-size: 50px;
   line-height: 0.1;
   color: #FCE9D6;
@@ -41,7 +42,7 @@
 }
 
 .main-title {
-  /*font-family: 'Varela Round', sans-serif;*/
+  font-family: 'Varela Round', sans-serif;
   font-size: 35px;
   font-weight: 600;
   margin-left: 15px;
