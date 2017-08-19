@@ -18,6 +18,7 @@ export default class District extends Component {
     }, () => {
       console.log('afterClick:', this.state.shouldIExpand);
     })
+    this.props.addDistrictToShowDown(this.props.location)
   }
 
   componentDidMount() {

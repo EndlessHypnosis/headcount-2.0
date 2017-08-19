@@ -4,7 +4,6 @@ import District from './District'
 export default class Header extends Component {
   constructor() {
     super();
-
   }
 
   render() {
@@ -18,7 +17,7 @@ export default class Header extends Component {
     return (
       <div>
         <p className="header-title">Headcount 2.0</p>
-
+        { districtsToOutput }
       </div>
     )
 

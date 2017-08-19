@@ -18,7 +18,10 @@ class App extends Component {
     }
   }
 
-  addDistrictToShowDown(district) {
+  addDistrictToShowDown(districtName) {
+
+    const district = this.districtRepo.findByName(districtName)
+
     const newShowDown = [...this.state.districtShowDown, district]
     this.setState({
       districtShowDown: newShowDown
@@ -48,14 +51,16 @@ class App extends Component {
     return (
       <div className="app-wrapper">
         <div className="header-section">
-          <Header districtShowDown= {this.state.districtShowDown} />
+          <Header districtShowDown={ this.state.districtShowDown } />
         </div>
         <div className="main-section">
           <div className="main-header">
             <p className="main-title">Districts</p>
             <Search searchForDistricts={ this.searchForDistricts.bind(this) } />
           </div>
-          <DistrictList districts={ this.state.districts } />
+          <DistrictList districts={ this.state.districts }
+                        addDistrictToShowDown={ this.addDistrictToShowDown.bind(this) }
+          />
         </div>
       </div>
     );
