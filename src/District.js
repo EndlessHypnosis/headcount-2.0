@@ -3,10 +3,10 @@ import '../styles/District.css';
 
 
 export default class District extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      shouldIExpand: false,
+      shouldIExpand: this.props.startExpanded,
       shouldICompare: false
     }
   }
@@ -16,22 +16,47 @@ export default class District extends Component {
     this.setState({
       shouldIExpand: !this.state.shouldIExpand
     }, () => {
-      console.log('afterClick:', this.state.shouldIExpand);
+      this.props.addDistrictToShowDown(this.props.location, this.state.shouldIExpand);
     })
-    this.props.addDistrictToShowDown(this.props.location)
+  }
+
+  isDistrictNotInShowDown() {
+    return this.props.districtShowDown.findIndex(element =>
+      element.location === this.props.location) === -1
   }
 
   componentDidMount() {
-    this.cardBio.style.display = 'none'
+    if (!this.isDistrictNotInShowDown()) {
+      this.cardBio.style.display = 'flex'
+      this.cardBio.className = 'card-bio'
+      this.cardHeader.className = (this.isDistrictNotInShowDown())
+                                  ? 'card-header'
+                                  : 'card-header card-selected'
+      this.setState({
+        shouldIExpand: true
+      })
+    } else {
+      this.cardBio.style.display = 'none'
+      this.cardBio.className = 'card-bio add-overflow'
+    }
   }
 
   componentWillUpdate(nextProps, nextState) {
-    console.log('component will update:', nextState.shouldIExpand);
     if (nextState.shouldIExpand) {
       this.cardBio.style.display = 'flex'
     } else {
       this.cardBio.style.display = 'none'
+      this.cardHeader.className = 'card-header'
     }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    this.cardHeader.className = (this.isDistrictNotInShowDown())
+                                ? 'card-header'
+                                : 'card-header card-selected'
+    this.cardBio.style.display = (this.state.shouldIExpand)
+                                ? 'flex'
+                                : 'none'
   }
 
   render() {

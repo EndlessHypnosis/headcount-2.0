@@ -5,19 +5,17 @@
   font-family: 'Roboto', sans-serif;
 }
 
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
 .app-wrapper {
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
   font-size: 12px;
-}
-
-.header-section {
-  display: flex;
-  flex-direction: column;
-  background-color: #3C4042;
-  padding: 30px;
 }
 
 .header-title {

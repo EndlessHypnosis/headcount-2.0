@@ -40,6 +40,10 @@
   background: #f6bc83;
 }
 
+.card-selected {
+  background: #f6bc83;
+}
+
 .info-back {
   /*position: absolute;
   left: 13px;
@@ -74,6 +78,11 @@
   font-size: 20px;
   /*margin: 0;*/
   color: #591C0E;
+}
+
+.add-overflow{
+  overflow: auto;
+  max-height: 150px;
 }
 
 .card-bio {

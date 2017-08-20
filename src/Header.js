@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import District from './District'
+import ShowDown from './ShowDown'
+import '../styles/Header.css';
 
 export default class Header extends Component {
   constructor() {
@@ -8,16 +10,34 @@ export default class Header extends Component {
 
   render() {
 
-    const districtsToOutput = this.props.districtShowDown.map(district => {
-      return (
-        <District { ...district } key={ district.location } />
-      )
-    })
+    // const districtsToOutput = this.props.districtShowDown.map(district => {
+    //   return (
+    //     <District { ...district } key={ district.location } />
+    //   )
+    // })
+
 
     return (
-      <div>
+      <div className="header-section">
         <p className="header-title">Headcount 2.0</p>
-        { districtsToOutput }
+        <div className="flex-row">
+          { this.props.districtShowDown.length > 0 &&
+            <District { ...this.props.districtShowDown[0] }
+                      startExpanded={true}
+                      districtShowDown={ this.props.districtShowDown }
+            />
+          }
+
+          { this.props.districtShowDown.length > 1 &&
+            <div className="flex-row">
+              <ShowDown districtShowDown={ this.props.districtShowDown } />
+              <District { ...this.props.districtShowDown[1] }
+                        startExpanded={true}
+                        districtShowDown={ this.props.districtShowDown }
+              />
+            </div>
+          }
+        </div>
       </div>
     )
 

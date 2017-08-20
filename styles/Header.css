@@ -1,0 +1,11 @@
+.header-section {
+  display: flex;
+  flex-direction: column;
+  background-color: #3C4042;
+  padding: 30px;
+}
+
+.showdown-wrapper {
+  display: flex;
+  flex-direction: row;
+}

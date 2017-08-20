@@ -2,12 +2,17 @@ import React from 'react';
 import District from './District';
 import '../styles/DistrictList.css';
 
-const DistrictList = ({ districts, addDistrictToShowDown }) => {
+const DistrictList = ({ districts, addDistrictToShowDown, districtShowDown }) => {
 
 
   const districtsToOutput = districts.map(district => {
     return (
-      <District { ...district } key={ district.location } addDistrictToShowDown={ addDistrictToShowDown } />
+      <District { ...district }
+                key={ district.location }
+                districtShowDown={ districtShowDown }
+                addDistrictToShowDown={ addDistrictToShowDown }
+                startExpanded={false}
+      />
     )
   })
 
