@@ -85,7 +85,7 @@ export default class District extends Component {
               ref={(element) => this.cardBio = element}
         >
           { years.map((year, i) =>
-              <div className="card-bio-detail" key={i}>
+              <div className="card-bio-detail" key={`${location}-${year}`}>
                 <span className="card-bio-year">{year}</span>
                 <span className={ parseFloat(data[year]) < 0.5  ? "card-bio-year-red" : "card-bio-year-green" }>{data[year]}</span>
               </div>

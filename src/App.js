@@ -10,6 +10,7 @@ import kinderData from '../data/kindergartners_in_full_day_program.js';
 
 // TODO:
 //  Resume for Meg
+//  make it so cards in showdown can't be clicked
 //  Need 2 animations
 //  Need propTypes
 //  unit tests
