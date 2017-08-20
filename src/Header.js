@@ -22,13 +22,19 @@ export default class Header extends Component {
         <p className="header-title">Headcount 2.0</p>
         <div className="flex-row">
           { this.props.districtShowDown.length > 0 &&
-            <District { ...this.props.districtShowDown[0] } startExpanded={true} />
+            <District { ...this.props.districtShowDown[0] }
+                      startExpanded={true}
+                      districtShowDown={ this.props.districtShowDown }
+            />
           }
 
           { this.props.districtShowDown.length > 1 &&
             <div className="flex-row">
               <ShowDown districtShowDown={ this.props.districtShowDown } />
-              <District { ...this.props.districtShowDown[1] } startExpanded={true} />
+              <District { ...this.props.districtShowDown[1] }
+                        startExpanded={true}
+                        districtShowDown={ this.props.districtShowDown }
+              />
             </div>
           }
         </div>

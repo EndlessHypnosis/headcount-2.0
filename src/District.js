@@ -15,14 +15,19 @@ export default class District extends Component {
     // console.log('it was clicked');
     this.setState({
       shouldIExpand: !this.state.shouldIExpand
+    }, () => {
+      this.props.addDistrictToShowDown(this.props.location, this.state.shouldIExpand);
     })
-    this.props.addDistrictToShowDown(this.props.location);
   }
 
   componentDidMount() {
     if (this.props.startExpanded) {
       this.cardBio.style.display = 'flex'
       this.cardBio.className = 'card-bio'
+      this.cardHeader.className = (this.props.districtShowDown.findIndex(element =>
+                                    element.location === this.props.location) === -1)
+                                  ? 'card-header'
+                                  : 'card-header card-selected'
     } else {
       this.cardBio.style.display = 'none'
       this.cardBio.className = 'card-bio add-overflow'
@@ -33,9 +38,21 @@ export default class District extends Component {
     // console.log('component will update:', nextState.shouldIExpand);
     if (nextState.shouldIExpand) {
       this.cardBio.style.display = 'flex'
+      this.cardHeader.className = (this.props.districtShowDown.findIndex(element =>
+                                    element.location === this.props.location) === -1)
+                                  ? 'card-header'
+                                  : 'card-header card-selected'
     } else {
       this.cardBio.style.display = 'none'
+      this.cardHeader.className = 'card-header'
     }
+  }
+
+  componentDidUpdate(nextProps, nextState) {
+    this.cardHeader.className = (this.props.districtShowDown.findIndex(element =>
+                                  element.location === this.props.location) === -1)
+                                ? 'card-header'
+                                : 'card-header card-selected'
   }
 
   render() {

@@ -30,7 +30,7 @@ class App extends Component {
     return this === element.location;
   }
 
-  addDistrictToShowDown(districtName) {
+  addDistrictToShowDown(districtName, shouldIExpand) {
 
     const indexOfDistrict = this.state.districtShowDown.findIndex(this.isDistrictInShowDown, districtName)
 
@@ -41,7 +41,7 @@ class App extends Component {
       this.setState({
         districtShowDown: newShowDown
       })
-    } else if (this.state.districtShowDown.length <= 1) {
+    } else if (this.state.districtShowDown.length <= 1 && shouldIExpand) {
 
       const district = this.districtRepo.findByName(districtName)
 
@@ -82,6 +82,7 @@ class App extends Component {
             <Search searchForDistricts={ this.searchForDistricts.bind(this) } />
           </div>
           <DistrictList districts={ this.state.districts }
+                        districtShowDown={ this.state.districtShowDown }
                         addDistrictToShowDown={ this.addDistrictToShowDown.bind(this) }
           />
         </div>

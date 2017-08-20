@@ -40,6 +40,10 @@
   background: #f6bc83;
 }
 
+.card-selected {
+  background: #f6bc83;
+}
+
 .info-back {
   /*position: absolute;
   left: 13px;
