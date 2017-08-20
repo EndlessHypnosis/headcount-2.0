@@ -4,18 +4,18 @@ import '../styles/ShowDown.css';
 const ShowDown = ({ districtShowDown }) => {
 
 
+
   const allTheYears = Object.assign({},
                                     Object.keys(districtShowDown[0].data),
                                     Object.keys(districtShowDown[1].data));
 
-  console.log('all the years:', allTheYears)
 
-  const showDownData = allTheYears.map(year => {
+  const showDownData = Object.keys(allTheYears).map(year => {
     return (
       <div className="card-bio-detail" key={`${year}`}>
-        <span className={ parseFloat(districtShowDown[0].data[year]) < 0.5  ? "card-bio-year-red" : "card-bio-year-green" }>{districtShowDown[0].data[year]}</span>
-        <span className="card-bio-year">{year}</span>
-        <span className={ parseFloat(districtShowDown[1].data[year]) < 0.5  ? "card-bio-year-red" : "card-bio-year-green" }>{districtShowDown[1].data[year]}</span>
+        <span className={ parseFloat(districtShowDown[0].data[allTheYears[year]]) < 0.5  ? "showdown-a card-bio-year-red" : "showdown-a card-bio-year-green" }>{districtShowDown[0].data[allTheYears[year]]}</span>
+        <span className="card-showdown-year">{allTheYears[year]}</span>
+        <span className={ parseFloat(districtShowDown[1].data[allTheYears[year]]) < 0.5  ? "showdown-b card-bio-year-red" : "showdown-b card-bio-year-green" }>{districtShowDown[1].data[allTheYears[year]]}</span>
       </div>
     )
   });

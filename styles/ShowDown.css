@@ -23,3 +23,43 @@
 .info-back-showdown {
   align-self: center;
 }
+
+
+
+.card-showdown-year {
+  color: #3C4042;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #989180;
+  border-right: 0;
+  border-left: 0;
+  padding: 2px 10px 2px 10px;
+}
+
+.showdown-a {
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #989180;
+  border-right: 0;
+  border-radius: 4px 0 0 4px;
+  padding: 2px 10px 2px 20px;
+}
+
+.showdown-b {
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #989180;
+  border-left: 0;
+  border-radius: 0 4px 4px 0;
+  padding: 2px 20px 2px 10px;
+}
+
+.card-bio-year-red {
+  color: #FCE9D6;
+  background: indianred;
+}
+
+.card-bio-year-green {
+  color: #FCE9D6;
+  background: mediumseagreen;
+}
