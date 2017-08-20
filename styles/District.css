@@ -76,6 +76,11 @@
   color: #591C0E;
 }
 
+.add-overflow{
+  overflow: auto;
+  max-height: 150px;
+}
+
 .card-bio {
   padding: 20px;
   /*font-family: 'Varela Round', sans-serif;*/

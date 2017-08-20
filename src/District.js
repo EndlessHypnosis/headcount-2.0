@@ -3,8 +3,8 @@ import '../styles/District.css';
 
 
 export default class District extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       shouldIExpand: this.props.startExpanded,
       shouldICompare: false
@@ -22,8 +22,10 @@ export default class District extends Component {
   componentDidMount() {
     if (this.props.startExpanded) {
       this.cardBio.style.display = 'flex'
+      this.cardBio.className = 'card-bio'
     } else {
       this.cardBio.style.display = 'none'
+      this.cardBio.className = 'card-bio add-overflow'
     }
   }
 

@@ -75,9 +75,7 @@ class App extends Component {
   render() {
     return (
       <div className="app-wrapper">
-        <div className="header-section">
-          <Header districtShowDown={ this.state.districtShowDown } />
-        </div>
+        <Header districtShowDown={ this.state.districtShowDown } />
         <div className="main-section">
           <div className="main-header">
             <p className="main-title">Districts</p>
