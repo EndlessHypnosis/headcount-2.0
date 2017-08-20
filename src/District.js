@@ -15,10 +15,8 @@ export default class District extends Component {
     // console.log('it was clicked');
     this.setState({
       shouldIExpand: !this.state.shouldIExpand
-    }, () => {
-      console.log('afterClick:', this.state.shouldIExpand);
     })
-    this.props.addDistrictToShowDown(this.props.location)
+    this.props.addDistrictToShowDown(this.props.location);
   }
 
   componentDidMount() {
@@ -26,7 +24,7 @@ export default class District extends Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    console.log('component will update:', nextState.shouldIExpand);
+    // console.log('component will update:', nextState.shouldIExpand);
     if (nextState.shouldIExpand) {
       this.cardBio.style.display = 'flex'
     } else {

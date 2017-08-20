@@ -8,6 +8,11 @@ import DistrictRepository from './helper.js';
 import kinderData from '../data/kindergartners_in_full_day_program.js';
 
 
+// TODO:
+//  Need 2 animations
+//  Need propTypes
+//  what to do about es lint?
+
 class App extends Component {
   constructor() {
     super();
@@ -18,14 +23,32 @@ class App extends Component {
     }
   }
 
+  // can this function live directly inside the findIndex?
+  isDistrictInShowDown(element, index, array) {
+    return this === element.location;
+  }
+
   addDistrictToShowDown(districtName) {
 
-    const district = this.districtRepo.findByName(districtName)
+    const indexOfDistrict = this.state.districtShowDown.findIndex(this.isDistrictInShowDown, districtName)
 
-    const newShowDown = [...this.state.districtShowDown, district]
-    this.setState({
-      districtShowDown: newShowDown
-    })
+    if (indexOfDistrict !== -1) {
+
+      const newShowDown = this.state.districtShowDown.slice();
+      newShowDown.splice(indexOfDistrict, 1)
+      this.setState({
+        districtShowDown: newShowDown
+      })
+    } else if (this.state.districtShowDown.length <= 1) {
+
+      const district = this.districtRepo.findByName(districtName)
+
+      const newShowDown = [...this.state.districtShowDown, district]
+      this.setState({
+        districtShowDown: newShowDown
+      })
+    }
+
   }
 
 

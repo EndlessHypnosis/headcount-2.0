@@ -7,7 +7,10 @@ const DistrictList = ({ districts, addDistrictToShowDown }) => {
 
   const districtsToOutput = districts.map(district => {
     return (
-      <District { ...district } key={ district.location } addDistrictToShowDown={ addDistrictToShowDown } />
+      <District { ...district }
+                key={ district.location }
+                addDistrictToShowDown={ addDistrictToShowDown }
+      />
     )
   })
 
