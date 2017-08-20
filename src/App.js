@@ -9,8 +9,10 @@ import kinderData from '../data/kindergartners_in_full_day_program.js';
 
 
 // TODO:
+//  Resume for Meg
 //  Need 2 animations
 //  Need propTypes
+//  unit tests
 //  what to do about es lint?
 //  should differentiate between a card that's just selected vs one that
 //    was 'allowed' to go up to showdown
