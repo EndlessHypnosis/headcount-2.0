@@ -10,6 +10,7 @@ const DistrictList = ({ districts, addDistrictToShowDown }) => {
       <District { ...district }
                 key={ district.location }
                 addDistrictToShowDown={ addDistrictToShowDown }
+                startExpanded={false}
       />
     )
   })

@@ -6,7 +6,7 @@ export default class District extends Component {
   constructor() {
     super();
     this.state = {
-      shouldIExpand: false,
+      shouldIExpand: this.props.startExpanded,
       shouldICompare: false
     }
   }
@@ -20,7 +20,11 @@ export default class District extends Component {
   }
 
   componentDidMount() {
-    this.cardBio.style.display = 'none'
+    if (this.props.startExpanded) {
+      this.cardBio.style.display = 'flex'
+    } else {
+      this.cardBio.style.display = 'none'
+    }
   }
 
   componentWillUpdate(nextProps, nextState) {

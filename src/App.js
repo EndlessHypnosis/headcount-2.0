@@ -12,6 +12,8 @@ import kinderData from '../data/kindergartners_in_full_day_program.js';
 //  Need 2 animations
 //  Need propTypes
 //  what to do about es lint?
+//  should differentiate between a card that's just selected vs one that
+//    was 'allowed' to go up to showdown
 
 class App extends Component {
   constructor() {
@@ -67,7 +69,7 @@ class App extends Component {
     // this.setState({
     //   districts: this.districtRepo.findAllMatches('colo')
     // })
-    this.searchForDistricts('colo')
+    this.searchForDistricts('de')
   }
 
   render() {
