@@ -20,14 +20,21 @@ export default class District extends Component {
     })
   }
 
+  isDistrictNotInShowDown() {
+    return this.props.districtShowDown.findIndex(element =>
+      element.location === this.props.location) === -1
+  }
+
   componentDidMount() {
-    if (this.props.startExpanded) {
+    if (!this.isDistrictNotInShowDown()) {
       this.cardBio.style.display = 'flex'
       this.cardBio.className = 'card-bio'
-      this.cardHeader.className = (this.props.districtShowDown.findIndex(element =>
-                                    element.location === this.props.location) === -1)
+      this.cardHeader.className = (this.isDistrictNotInShowDown())
                                   ? 'card-header'
                                   : 'card-header card-selected'
+      this.setState({
+        shouldIExpand: true
+      })
     } else {
       this.cardBio.style.display = 'none'
       this.cardBio.className = 'card-bio add-overflow'
@@ -35,24 +42,21 @@ export default class District extends Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    // console.log('component will update:', nextState.shouldIExpand);
     if (nextState.shouldIExpand) {
       this.cardBio.style.display = 'flex'
-      this.cardHeader.className = (this.props.districtShowDown.findIndex(element =>
-                                    element.location === this.props.location) === -1)
-                                  ? 'card-header'
-                                  : 'card-header card-selected'
     } else {
       this.cardBio.style.display = 'none'
       this.cardHeader.className = 'card-header'
     }
   }
 
-  componentDidUpdate(nextProps, nextState) {
-    this.cardHeader.className = (this.props.districtShowDown.findIndex(element =>
-                                  element.location === this.props.location) === -1)
+  componentDidUpdate(prevProps, prevState) {
+    this.cardHeader.className = (this.isDistrictNotInShowDown())
                                 ? 'card-header'
                                 : 'card-header card-selected'
+    this.cardBio.style.display = (this.state.shouldIExpand)
+                                ? 'flex'
+                                : 'none'
   }
 
   render() {
