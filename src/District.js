@@ -27,6 +27,7 @@ export default class District extends Component {
 
   componentDidMount() {
     if (!this.isDistrictNotInShowDown()) {
+      this.cardWrapper.className = "card no-flex"
       this.cardBio.style.display = 'flex'
       this.cardBio.className = 'card-bio'
       this.cardHeader.className = (this.isDistrictNotInShowDown())
@@ -70,7 +71,7 @@ export default class District extends Component {
     const years = Object.keys(data);
 
     return (
-      <div className="card">
+      <div className="card yes-flex" ref={(element) => this.cardWrapper = element}>
         <div  className="card-header"
               onClick={this.handleClick.bind(this)}
               ref={(element) => this.cardHeader = element}

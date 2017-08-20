@@ -21,15 +21,15 @@ const ShowDown = ({ districtShowDown }) => {
   });
 
   return (
-    <div className="card">
+    <div className="card no-flex">
       <div className="card-header-showdown">
-        <p className="info-back-showdown">Showdown</p>
-      </div>
-      <div className="card-bio">
         <div className="compare-ratio">
-          <p>Compare Ratio</p>
-          <p>{(districtShowDown[0].average / districtShowDown[1].average).toFixed(3)}</p>
+          <span className="ratio-header">Compare Ratio: </span>
+          <span className="ratio-detail">{(districtShowDown[0].average / districtShowDown[1].average).toFixed(3)}</span>
         </div>
+      </div>
+      <div className="card-bio center-me">
+
 
         { showDownData }
 

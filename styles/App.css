@@ -8,6 +8,7 @@
 .flex-row {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .app-wrapper {
@@ -25,6 +26,7 @@
   line-height: 0.1;
   color: #FCE9D6;
   text-shadow: rgba(255, 255, 255, .1) -1px -1px 1px, rgba(0, 0, 0, .5) 1px 1px 1px;
+  margin-bottom: 20px;
 }
 
 .main-section {
