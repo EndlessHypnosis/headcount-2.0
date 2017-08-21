@@ -21,19 +21,18 @@ describe('DistrictList Component', () =>  {
     mockFn = jest.fn();
 
     wrapper = shallow(<DistrictList districts={ allTheDistricts }
-                  districtShowDown={ districtArray }
-                  addDistrictToShowDown={ mockFn }
-                />);
-  })
+                                    districtShowDown={ districtArray }
+                                    addDistrictToShowDown={ mockFn }
+                      />);
+  });
 
   test('should exist', () => {
     expect(wrapper).toBeDefined();
-  })
+  });
 
   test('array should contain 2 data sets', () => {
     expect(wrapper.instance().props.districtShowDown.length).toEqual(2);
   });
-
 
   test('array should contain valid data sets', () => {
     expect(wrapper.instance().props.districtShowDown[0].location).toEqual('COLORADO');

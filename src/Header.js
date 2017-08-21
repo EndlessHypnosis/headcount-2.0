@@ -29,9 +29,7 @@ const Header = ({ districtShowDown }) => {
         </div>
       </div>
     )
-
   }
-
 
 Header.propTypes = {
   districtShowDown: PropTypes.array,
@@ -42,6 +40,5 @@ Header.propTypes = {
     data: PropTypes.object
   }))
 }
-
 
 export default Header;

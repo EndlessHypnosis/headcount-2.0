@@ -32,18 +32,12 @@
   align-items: center;
   padding: 10px;
   cursor: default;
-
   font-size: 22px;
   font-family: 'Varela Round', sans-serif;
-
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.5) inset, 0 1px 1px #7A5938;
   border-radius: 4px 4px 0 0;
-
   background: linear-gradient(#FFF6E9, #FADCBE 70%);
 }
-
-
-
 
 .card-showdown-year {
   color: #3C4042;

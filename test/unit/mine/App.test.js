@@ -18,15 +18,15 @@ describe('App Component', () =>  {
     allTheDistricts = districtRepo.findAllMatches('de');
     mockFn = jest.fn();
     wrapper = shallow(<App />);
-  })
+  });
 
   beforeEach(() => {
     wrapper.instance().districtRepo = districtRepo
-  })
+  });
 
   test('should exist', () => {
     expect(wrapper).toBeDefined();
-  })
+  });
 
   test('state should start empty', () => {
     expect(wrapper.state().districts.length).toEqual(0);

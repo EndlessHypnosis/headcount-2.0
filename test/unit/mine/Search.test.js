@@ -9,11 +9,11 @@ describe('Search Component', () =>  {
   beforeAll(() => {
     mockFn = jest.fn();
     wrapper = shallow(<Search searchForDistricts={ mockFn } />);
-  })
+  });
 
   test('should exist', () => {
     expect(wrapper).toBeDefined();
-  })
+  });
 
   test('should set the state by calling handleChange', () => {
     expect(wrapper.state().searchInput).toEqual('')

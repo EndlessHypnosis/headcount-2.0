@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import '../styles/DistrictList.css';
 
 const DistrictList = ({ districts, addDistrictToShowDown, districtShowDown }) => {
-
-
   const districtsToOutput = districts.map(district => {
     return (
       <District { ...district }
@@ -17,14 +15,11 @@ const DistrictList = ({ districts, addDistrictToShowDown, districtShowDown }) =>
     )
   })
 
-
   return (
     <div className="district-list">
       {districtsToOutput}
     </div>
   )
-
-
 }
 
 // I'm getting a warning in my console about duplicate key...is it not

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/District.css';
 
-
 export default class District extends Component {
   constructor(props) {
     super(props);
@@ -63,34 +62,26 @@ export default class District extends Component {
   }
 
   render() {
-
-    // const stylez = {
-    //   display: 'none'
-    // }
-
     const { location, average, data } = this.props;
-
     const years = Object.keys(data);
 
     return (
       <div className="card yes-flex" ref={(element) => this.cardWrapper = element}>
-        <div  className="card-header"
-              onClick={this.handleClick.bind(this)}
-              ref={(element) => this.cardHeader = element}
-        >
+        <div  className="card-header" onClick={this.handleClick.bind(this)}
+              ref={(element) => this.cardHeader = element}>
             <p className="info-back">{ location }</p>
             <div className="info-rank-wrapper">
               <p className="info-rank">Avg</p>
               <p className="info-rank-sub">{ average }</p>
             </div>
         </div>
-        <div  className="card-bio"
-              ref={(element) => this.cardBio = element}
-        >
+        <div className="card-bio" ref={(element) => this.cardBio = element}>
           { years.map((year, i) =>
               <div className="card-bio-detail" key={`${location}-${year}`}>
                 <span className="card-bio-year">{year}</span>
-                <span className={ parseFloat(data[year]) < 0.5  ? "card-bio-year-red" : "card-bio-year-green" }>{data[year]}</span>
+                <span className={ parseFloat(data[year]) < 0.5  ?
+                                  "card-bio-year-red" :
+                                  "card-bio-year-green" }>{data[year]}</span>
               </div>
             )
           }
@@ -99,7 +90,6 @@ export default class District extends Component {
     )
   }
 }
-
 
 District.propTypes = {
   startExpanded: PropTypes.bool,
@@ -113,9 +103,3 @@ District.propTypes = {
     data: PropTypes.object
   }))
 }
-
-
-
-
-
-// end

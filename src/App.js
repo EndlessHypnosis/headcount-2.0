@@ -3,15 +3,8 @@ import '../styles/App.css';
 import DistrictList from './DistrictList'
 import Search from './Search'
 import Header from './Header'
-
 import DistrictRepository from './helper.js';
 import kinderData from '../data/kindergartners_in_full_day_program.js';
-
-
-// TODO:
-//  Resume for Meg
-//  unit tests
-//  REFACTOR
 
 class App extends Component {
   constructor() {
@@ -23,34 +16,27 @@ class App extends Component {
     }
   }
 
-  // can this function live directly inside the findIndex?
   isDistrictInShowDown(element, index, array) {
     return this === element.location;
   }
 
   addDistrictToShowDown(districtName, shouldIExpand) {
-
     const indexOfDistrict = this.state.districtShowDown.findIndex(this.isDistrictInShowDown, districtName)
 
     if (indexOfDistrict !== -1) {
-
       const newShowDown = this.state.districtShowDown.slice();
       newShowDown.splice(indexOfDistrict, 1)
       this.setState({
         districtShowDown: newShowDown
       })
     } else if (this.state.districtShowDown.length <= 1 && shouldIExpand) {
-
       const district = this.districtRepo.findByName(districtName)
-
       const newShowDown = [...this.state.districtShowDown, district]
       this.setState({
         districtShowDown: newShowDown
       })
     }
-
   }
-
 
   searchForDistricts(searchString) {
     this.setState({
@@ -58,10 +44,9 @@ class App extends Component {
     })
   }
 
-
   componentDidMount() {
     this.districtRepo = new DistrictRepository(kinderData);
-    this.searchForDistricts('de')
+    this.searchForDistricts()
   }
 
   render() {

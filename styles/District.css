@@ -1,4 +1,3 @@
-
 .card {
   margin: 15px;
   display: flex;
@@ -23,15 +22,10 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /*height: 60px;*/
   padding: 10px;
   cursor: pointer;
-
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.5) inset, 0 1px 1px #7A5938;
   border-radius: 4px 4px 0 0;
-
-  /*background-color: #FADCBE;*/
-  /*border-bottom: 1px solid #C7AF97;*/
   background: #FFF6E9;
   /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(#FFF6E9, #FADCBE 70%);
@@ -53,9 +47,6 @@
 }
 
 .info-back {
-  /*position: absolute;
-  left: 13px;
-  top: -1px;*/
   font-family: 'Varela Round', sans-serif;
   font-weight: 600;
   font-size: 15px;
@@ -63,27 +54,18 @@
 }
 
 .info-rank-wrapper {
-  /*position: relative;
-  right: 20px;
-  top: 3px;*/
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .info-rank {
-  /*font-family: 'Varela Round', sans-serif;*/
-  /*margin: 15px 0px 4px 0px;*/
   font-size: 11px;
-  /*font-weight: 600;*/
   color: #591C0E;
 }
 
 .info-rank-sub {
-  /*font-family: 'Varela Round', sans-serif;*/
-  /*font-weight: 500;*/
   font-size: 16px;
-  /*margin: 0;*/
   color: #591C0E;
 }
 
@@ -94,8 +76,6 @@
 
 .card-bio {
   padding: 20px;
-  /*font-family: 'Varela Round', sans-serif;*/
-  /*font-size: 18px;*/
   flex-direction: column;
   align-items: center;
   color: #3C4042;
