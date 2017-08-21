@@ -24,7 +24,6 @@ describe('ShowDown Component', () =>  {
     expect(wrapper.instance().props.districtShowDown.length).toEqual(2);
   });
 
-
   test('show down array should contain valid data sets', () => {
     expect(wrapper.instance().props.districtShowDown[0].location).toEqual('COLORADO');
     expect(wrapper.instance().props.districtShowDown[1].location).toEqual('ACADEMY 20');

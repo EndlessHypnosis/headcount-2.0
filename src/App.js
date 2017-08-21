@@ -57,16 +57,10 @@ class App extends Component {
       districts: this.districtRepo.findAllMatches(searchString)
     })
   }
-  // callback function example for between }) in setState:
-  // , () => {this.districtRepo.compareDistrictAverages('ACADEMY 20', 'YUMA SCHOOL DISTRICT 1')}
-
 
 
   componentDidMount() {
     this.districtRepo = new DistrictRepository(kinderData);
-    // this.setState({
-    //   districts: this.districtRepo.findAllMatches('colo')
-    // })
     this.searchForDistricts('de')
   }
 
