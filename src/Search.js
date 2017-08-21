@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import '../styles/Search.css';
-
 
 export default class Search extends Component {
   constructor() {
@@ -20,14 +19,11 @@ export default class Search extends Component {
   }
 
   render() {
-
-    return (
-      <input  className="search-input"
-              placeholder="Search"
-              value={ this.state.searchInput }
-              onChange={ this.handleChange.bind(this) }
-      />
-    )
+    return (<input  className="search-input"
+                    placeholder="Search"
+                    value={this.state.searchInput}
+                    onChange={this.handleChange.bind(this)}
+            />)
   }
 
 }
@@ -35,12 +31,3 @@ export default class Search extends Component {
 Search.propTypes = {
   searchForDistricts: PropTypes.func
 }
-
-
-
-
-
-
-
-
-//end
