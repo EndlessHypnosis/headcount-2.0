@@ -12,12 +12,13 @@ export default class District extends Component {
   }
 
   handleClick() {
-    // console.log('it was clicked');
-    this.setState({
-      shouldIExpand: !this.state.shouldIExpand
-    }, () => {
-      this.props.addDistrictToShowDown(this.props.location, this.state.shouldIExpand);
-    })
+    if (!this.props.startExpanded) {
+      this.setState({
+        shouldIExpand: !this.state.shouldIExpand
+      }, () => {
+        this.props.addDistrictToShowDown(this.props.location, this.state.shouldIExpand);
+      })
+    }
   }
 
   isDistrictNotInShowDown() {
@@ -27,6 +28,7 @@ export default class District extends Component {
 
   componentDidMount() {
     if (!this.isDistrictNotInShowDown()) {
+      this.cardWrapper.className = "card no-flex"
       this.cardBio.style.display = 'flex'
       this.cardBio.className = 'card-bio'
       this.cardHeader.className = (this.isDistrictNotInShowDown())
@@ -70,7 +72,7 @@ export default class District extends Component {
     const years = Object.keys(data);
 
     return (
-      <div className="card">
+      <div className="card yes-flex" ref={(element) => this.cardWrapper = element}>
         <div  className="card-header"
               onClick={this.handleClick.bind(this)}
               ref={(element) => this.cardHeader = element}
@@ -85,8 +87,9 @@ export default class District extends Component {
               ref={(element) => this.cardBio = element}
         >
           { years.map((year, i) =>
-              <div key={i}>
-                <p>{year} : {data[year]}</p>
+              <div className="card-bio-detail" key={`${location}-${year}`}>
+                <span className="card-bio-year">{year}</span>
+                <span className={ parseFloat(data[year]) < 0.5  ? "card-bio-year-red" : "card-bio-year-green" }>{data[year]}</span>
               </div>
             )
           }

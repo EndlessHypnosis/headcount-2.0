@@ -2,12 +2,20 @@
 .card {
   margin: 15px;
   display: flex;
-  flex: 1;
   flex-direction: column;
+  min-width: 250px;
   border: 1px solid #C7AF97;
   border-radius: 4px;
   background-color: #FFF6E9;
   box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.yes-flex {
+  flex: 1;
+}
+
+.no-flex {
+  flex: 0;
 }
 
 .card-header {
@@ -49,8 +57,8 @@
   left: 13px;
   top: -1px;*/
   font-family: 'Varela Round', sans-serif;
-
-  font-size: 20px;
+  font-weight: 600;
+  font-size: 15px;
   color: #3C4042;
 }
 
@@ -66,23 +74,22 @@
 .info-rank {
   /*font-family: 'Varela Round', sans-serif;*/
   /*margin: 15px 0px 4px 0px;*/
-  font-size: 13px;
+  font-size: 11px;
   /*font-weight: 600;*/
   color: #591C0E;
 }
 
 .info-rank-sub {
   /*font-family: 'Varela Round', sans-serif;*/
-  font-size: 13px;
   /*font-weight: 500;*/
-  font-size: 20px;
+  font-size: 16px;
   /*margin: 0;*/
   color: #591C0E;
 }
 
 .add-overflow{
   overflow: auto;
-  max-height: 150px;
+  max-height: 300px;
 }
 
 .card-bio {
@@ -90,5 +97,42 @@
   /*font-family: 'Varela Round', sans-serif;*/
   /*font-size: 18px;*/
   flex-direction: column;
+  align-items: center;
   color: #3C4042;
+}
+
+.card-bio-detail {
+  margin-bottom: 7px;
+}
+
+.card-bio-year {
+  color: #3C4042;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #989180;
+  border-right: 0;
+  border-radius: 4px 0 0 4px;
+  padding: 2px 5px 2px 10px;
+}
+
+.card-bio-year-red {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FCE9D6;
+  background: indianred;
+  border: 1px solid #989180;
+  border-left: 0;
+  border-radius: 0 4px 4px 0;
+  padding: 2px 10px 2px 5px;
+}
+
+.card-bio-year-green {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FCE9D6;
+  background: mediumseagreen;
+  border: 1px solid #989180;
+  border-left: 0;
+  border-radius: 0 4px 4px 0;
+  padding: 2px 10px 2px 5px;
 }
