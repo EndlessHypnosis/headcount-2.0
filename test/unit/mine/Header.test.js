@@ -1,9 +1,9 @@
 import React from 'react';
-import Header from '../../src/Header';
-import District from '../../src/District';
-import ShowDown from '../../src/ShowDown';
-import DistrictRepository from '../../src/helper.js';
-import kinderData from '../../data/kindergartners_in_full_day_program.js';
+import Header from '../../../src/Header';
+import District from '../../../src/District';
+import ShowDown from '../../../src/ShowDown';
+import DistrictRepository from '../../../src/helper.js';
+import kinderData from '../../../data/kindergartners_in_full_day_program.js';
 import { shallow, mount } from 'enzyme'
 
 describe('Header Component', () =>  {

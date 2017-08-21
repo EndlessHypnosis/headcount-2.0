@@ -1,7 +1,7 @@
 import React from 'react';
-import ShowDown from '../../src/ShowDown';
-import DistrictRepository from '../../src/helper.js';
-import kinderData from '../../data/kindergartners_in_full_day_program.js';
+import ShowDown from '../../../src/ShowDown';
+import DistrictRepository from '../../../src/helper.js';
+import kinderData from '../../../data/kindergartners_in_full_day_program.js';
 import { shallow, mount } from 'enzyme'
 
 describe('ShowDown Component', () =>  {
