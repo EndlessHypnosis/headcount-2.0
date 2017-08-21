@@ -1,4 +1,23 @@
-# HeadCount 2.0
+# HeadCount 2.0 by Nick Svetnicka for Turing
+
+![ScreenShot of App](styles/_ss.png?raw=true "ScreenShot of App")
+
+## Introduction
+
+> This application can be used to search for districts and display their yearly data. The averages are also calculated for each district. 2 districts can be compared head-to-head by clicking on the header.
+
+
+## Built With
+
+* HTML
+* CSS
+* JavaScript
+* React
+* Jest/Enzyme
+
+
+
+# ORIGINAL SPECS
 
 HeadCount 2.0 is a project designed to challenge your skills at manipulating data and creating small, reusable React components.  
 
