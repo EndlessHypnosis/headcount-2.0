@@ -1,6 +1,6 @@
 # HeadCount 2.0 by Nick Svetnicka for Turing
 
-![ScreenShot of App](styles/_ss.png?raw=true "ScreenShot of App")
+![ScreenShot of App](styles/_ss_.png?raw=true "ScreenShot of App")
 
 ## Introduction
 
