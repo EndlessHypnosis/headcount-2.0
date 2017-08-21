@@ -38,30 +38,44 @@ describe('DistrictList Component', () =>  {
     expect(wrapper.state().shouldICompare).toEqual(false);
   });
 
+  test('should be able to reference elements', () => {
+    wrapper.instance().cardBio = wrapper.find('.card-bio')
+    wrapper.instance().cardHeader = wrapper.find('.card-header')
+
+    expect(wrapper.instance().cardBio.exists()).toEqual(true)
+    expect(wrapper.instance().cardHeader.exists()).toEqual(true)
+
+  });
+
   test('should set the state by calling handleClick', () => {
     expect(wrapper.state().shouldIExpand).toEqual(false)
-
-    wrapper.instance().cardBio = wrapper.find('.card-bio')
     wrapper.instance().cardBio.style = {}
-    wrapper.instance().cardHeader = wrapper.find('.card-header')
 
     wrapper.instance().handleClick()
     expect(wrapper.state().shouldIExpand).toEqual(true)
 
     // make sure call back function on setState was called
     expect(wrapper.instance().props.addDistrictToShowDown).toHaveBeenCalled()
+
   })
 
+  test('should correctly detect if district is in showdown', () => {
+    expect(wrapper.instance().isDistrictNotInShowDown()).toEqual(false)
+  })
 
-  //
-  //
-  // test('array should contain valid data sets', () => {
-  //   expect(wrapper.instance().props.districtShowDown[0].location).toEqual('COLORADO');
-  //   expect(wrapper.instance().props.districtShowDown[1].location).toEqual('ACADEMY 20');
-  // });
-  //
-  // test('should output 14 districts', () => {
-  //   expect(wrapper.find(District).length).toEqual(14);
-  // });
+  test('should have the year info hidden correctly', () => {
+    expect(wrapper.find('.card-bio-detail').length).toEqual(11);
+    expect(wrapper.instance().cardBio.style.display).toEqual('flex');
+
+    wrapper.instance().handleClick()
+    expect(wrapper.instance().cardBio.style.display).toEqual('none');
+
+    wrapper.instance().handleClick()
+    expect(wrapper.instance().cardBio.style.display).toEqual('flex');
+  })
+
+  test('should have the correct header indicating its in showdown', () => {
+    expect(wrapper.instance().cardHeader.className).toEqual('card-header card-selected');
+  })
 
 });
