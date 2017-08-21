@@ -10,9 +10,7 @@ import kinderData from '../data/kindergartners_in_full_day_program.js';
 
 // TODO:
 //  Resume for Meg
-//  Need 2 animations
 //  unit tests
-//  what to do about es lint?
 //  REFACTOR
 
 class App extends Component {
