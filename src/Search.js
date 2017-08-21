@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import '../styles/Search.css';
 
 
@@ -30,3 +31,16 @@ export default class Search extends Component {
   }
 
 }
+
+Search.propTypes = {
+  searchForDistricts: PropTypes.func
+}
+
+
+
+
+
+
+
+
+//end
