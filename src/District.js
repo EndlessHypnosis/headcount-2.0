@@ -12,7 +12,7 @@ export default class District extends Component {
   }
 
   handleClick() {
-    if (this.isDistrictNotInShowDown()) {
+    if (!this.props.startExpanded) {
       this.setState({
         shouldIExpand: !this.state.shouldIExpand
       }, () => {
