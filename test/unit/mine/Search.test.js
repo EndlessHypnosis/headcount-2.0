@@ -22,6 +22,6 @@ describe('Search Component', () =>  {
 
     // make sure call back function on setState was called
     expect(wrapper.instance().props.searchForDistricts).toHaveBeenCalled()
-  })
+  });
 
 });
