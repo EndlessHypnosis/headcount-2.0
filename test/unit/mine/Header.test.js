@@ -15,18 +15,16 @@ describe('Header Component', () =>  {
     districtRepo = new DistrictRepository(kinderData);
     const districtA = districtRepo.findByName('colorado');
     districtArray = [districtA];
-
     wrapper = shallow(<Header districtShowDown={districtArray} />);
-  })
+  });
 
   test('should exist', () => {
     expect(wrapper).toBeDefined();
-  })
+  });
 
   test('array should contain 1 data sets', () => {
     expect(wrapper.instance().props.districtShowDown.length).toEqual(1);
   });
-
 
   test('array should contain valid data sets', () => {
     expect(wrapper.instance().props.districtShowDown[0].location).toEqual('COLORADO');
@@ -51,7 +49,6 @@ describe('Header Component', () =>  {
     expect(wrapper.find('.flex-row').length).toEqual(2);
     expect(wrapper.find(District).length).toEqual(2);
     expect(wrapper.find(ShowDown).length).toEqual(1);
-
   });
 
 });

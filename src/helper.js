@@ -1,5 +1,3 @@
-
-
 export default class DistrictRepository {
 
   constructor(unformattedData) {
@@ -13,30 +11,17 @@ export default class DistrictRepository {
 
       const districtYears = Object.keys(formattedData[districtName].data);
       const districtSum = districtYears.reduce((acum, year) => {
-        // console.log( formattedData[districtName].location === 'COLORADO' ?
-        //               `District[${formattedData[districtName].location}]
-        //               ${year}:${formattedData[districtName].data[year]}` : ''
-        //            );
         acum += parseFloat(formattedData[districtName].data[year])
         return acum;
       }, 0.0)
 
       const districtAvg = districtSum / districtYears.length;
-      // if (formattedData[districtName].location === 'COLORADO') {
-      //   console.log(`District[${formattedData[districtName].location}] Sum:${districtSum}`);
-      //   console.log(`District[${formattedData[districtName].location}] Avg:${districtAvg}`);
-      // }
-
       let newDistrictObj = Object.assign({}, formattedData[districtName], {average: districtAvg.toFixed(3)})
-      // if (formattedData[districtName].location === 'COLORADO') {
-      //   console.log('DIST OBJ:', newDistrictObj);
-      // }
-
       acum[districtName] = newDistrictObj
       return acum;
     }, {})
 
-    return districtsWithAvgs; // returning out of function
+    return districtsWithAvgs;
   }
 
   formatData(unformattedData) {
@@ -49,19 +34,13 @@ export default class DistrictRepository {
       const unroundedData = parseFloat(district.Data);
       let defaultData = 0;
       // THE PLUS here strips out extra 0's (i'd like not to use it, and have the 0's in there)
-      //                                              +unroundedData
+      //                                                                   +unroundedData
       const roundedData = (isNaN(unroundedData)) ? defaultData.toFixed(3) : unroundedData.toFixed(3);
       acum[district.Location].data[district.TimeFrame] = roundedData;
-      // //START TESTING
-      // if (acum[district.Location].location === 'ACADEMY 20') {
-      //   console.log('DATA:', acum[district.Location].data);
-      // }
-      // //END TESTING
       return acum;
     }, {})
     // add in the average property
     const formattedDataWithAvg = this.calcAvg(formattedData);
-    //console.log(formattedData)
     return formattedDataWithAvg;
   }
 
@@ -75,15 +54,11 @@ export default class DistrictRepository {
 
     const comparedAverage = parseFloat(districtA.average) / parseFloat(districtB.average)
 
-    // need to determine if we want to return the averages as a string
-    // which means we can preserve the formatting with padded 0's
-    // otherwise we should like parse Float to return as floats
     return {
       [districtA.location]: districtA.average,
       [districtB.location]: districtB.average,
       compared: comparedAverage.toFixed(3)
     }
-    // console.log('COMPARE OBJ:', compareObj);
   }
 
   findAverage(districtName) {
@@ -116,7 +91,5 @@ export default class DistrictRepository {
     })
     return findResults;
   }
-
-
 
 }

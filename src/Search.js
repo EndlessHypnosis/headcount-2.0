@@ -25,7 +25,6 @@ export default class Search extends Component {
                     onChange={this.handleChange.bind(this)}
             />)
   }
-
 }
 
 Search.propTypes = {

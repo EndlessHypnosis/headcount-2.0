@@ -27,11 +27,11 @@ describe('DistrictList Component', () =>  {
                         districtShowDown={ districtArray }
                         addDistrictToShowDown={ mockFn }
                       />);
-  })
+  });
 
   test('should exist', () => {
     expect(wrapper).toBeDefined();
-  })
+  });
 
   test('state should start out correct', () => {
     expect(wrapper.state().shouldIExpand).toEqual(false);
@@ -44,24 +44,21 @@ describe('DistrictList Component', () =>  {
 
     expect(wrapper.instance().cardBio.exists()).toEqual(true)
     expect(wrapper.instance().cardHeader.exists()).toEqual(true)
-
   });
 
   test('should set the state by calling handleClick', () => {
     expect(wrapper.state().shouldIExpand).toEqual(false)
     wrapper.instance().cardBio.style = {}
-
     wrapper.instance().handleClick()
     expect(wrapper.state().shouldIExpand).toEqual(true)
 
     // make sure call back function on setState was called
     expect(wrapper.instance().props.addDistrictToShowDown).toHaveBeenCalled()
-
-  })
+  });
 
   test('should correctly detect if district is in showdown', () => {
     expect(wrapper.instance().isDistrictNotInShowDown()).toEqual(false)
-  })
+  });
 
   test('should have the year info hidden correctly', () => {
     expect(wrapper.find('.card-bio-detail').length).toEqual(11);
@@ -72,10 +69,10 @@ describe('DistrictList Component', () =>  {
 
     wrapper.instance().handleClick()
     expect(wrapper.instance().cardBio.style.display).toEqual('flex');
-  })
+  });
 
   test('should have the correct header indicating its in showdown', () => {
     expect(wrapper.instance().cardHeader.className).toEqual('card-header card-selected');
-  })
+  });
 
 });
