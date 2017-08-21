@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import '../styles/District.css';
 
 
@@ -98,3 +99,23 @@ export default class District extends Component {
     )
   }
 }
+
+
+District.propTypes = {
+  startExpanded: PropTypes.bool,
+  addDistrictToShowDown: PropTypes.func,
+
+  districtShowDown: PropTypes.array,
+  districtShowDown: PropTypes.arrayOf(PropTypes.object),
+  districtShowDown: PropTypes.arrayOf(PropTypes.shape({
+    average: PropTypes.string,
+    location: PropTypes.string,
+    data: PropTypes.object
+  }))
+}
+
+
+
+
+
+// end

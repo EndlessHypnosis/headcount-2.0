@@ -55,13 +55,6 @@ Header.propTypes = {
     location: PropTypes.string,
     data: PropTypes.object
   }))
-  // districtShowDown: PropTypes.shape({
-  //   COLORADO: PropTypes.shape({
-  //     average: PropTypes.string.isRequired,
-  //     location: PropTypes.string.isRequired,
-  //     data: PropTypes.object.isRequired
-  //   })
-  // })
 }
 
 
