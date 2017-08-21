@@ -10,10 +10,7 @@ import kinderData from '../data/kindergartners_in_full_day_program.js';
 
 // TODO:
 //  Resume for Meg
-//  Need 2 animations
-//  Need propTypes
 //  unit tests
-//  what to do about es lint?
 //  REFACTOR
 
 class App extends Component {
@@ -60,16 +57,10 @@ class App extends Component {
       districts: this.districtRepo.findAllMatches(searchString)
     })
   }
-  // callback function example for between }) in setState:
-  // , () => {this.districtRepo.compareDistrictAverages('ACADEMY 20', 'YUMA SCHOOL DISTRICT 1')}
-
 
 
   componentDidMount() {
     this.districtRepo = new DistrictRepository(kinderData);
-    // this.setState({
-    //   districts: this.districtRepo.findAllMatches('colo')
-    // })
     this.searchForDistricts('de')
   }
 
