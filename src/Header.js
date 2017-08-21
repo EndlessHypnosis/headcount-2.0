@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import District from './District'
 import ShowDown from './ShowDown'
+import PropTypes from 'prop-types'
 import '../styles/Header.css';
 
 export default class Header extends Component {
@@ -44,3 +45,25 @@ export default class Header extends Component {
   }
 
 }
+
+
+Header.propTypes = {
+  districtShowDown: PropTypes.array,
+  districtShowDown: PropTypes.arrayOf(PropTypes.object),
+  districtShowDown: PropTypes.arrayOf(PropTypes.shape({
+    average: PropTypes.string,
+    location: PropTypes.string,
+    data: PropTypes.object
+  }))
+}
+
+
+
+
+
+
+
+
+
+
+// end

@@ -10,13 +10,11 @@ import kinderData from '../data/kindergartners_in_full_day_program.js';
 
 // TODO:
 //  Resume for Meg
-//  make it so cards in showdown can't be clicked
 //  Need 2 animations
 //  Need propTypes
 //  unit tests
 //  what to do about es lint?
-//  should differentiate between a card that's just selected vs one that
-//    was 'allowed' to go up to showdown
+//  REFACTOR
 
 class App extends Component {
   constructor() {

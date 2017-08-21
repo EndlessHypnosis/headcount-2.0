@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import '../styles/ShowDown.css';
 
 const ShowDown = ({ districtShowDown }) => {
@@ -37,5 +38,20 @@ const ShowDown = ({ districtShowDown }) => {
     </div>
   )
 }
+
+
+ShowDown.propTypes = {
+  districtShowDown: PropTypes.array,
+  districtShowDown: PropTypes.arrayOf(PropTypes.object),
+  districtShowDown: PropTypes.arrayOf(PropTypes.shape({
+    average: PropTypes.string,
+    location: PropTypes.string,
+    data: PropTypes.object
+  }))
+}
+
+
+
+
 
 export default ShowDown
