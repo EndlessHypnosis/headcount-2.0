@@ -10,19 +10,18 @@ import { shallow, mount } from 'enzyme'
 describe('App Component', () =>  {
   let wrapper;
   let districtRepo;
-  // let districtArray;
   let allTheDistricts;
   let mockFn;
 
   beforeAll(() => {
     districtRepo = new DistrictRepository(kinderData);
     allTheDistricts = districtRepo.findAllMatches('de');
-    // const districtA = districtRepo.findByName('colorado');
-    // const districtB = districtRepo.findByName('academy 20');
-    // districtArray = [districtA, districtB];
     mockFn = jest.fn();
-
     wrapper = shallow(<App />);
+  })
+
+  beforeEach(() => {
+    wrapper.instance().districtRepo = districtRepo
   })
 
   test('should exist', () => {
@@ -36,7 +35,6 @@ describe('App Component', () =>  {
 
   test('set state correctly when searching for districts', () => {
     expect(wrapper.state().districts.length).toEqual(0);
-    wrapper.instance().districtRepo = districtRepo
 
     wrapper.instance().searchForDistricts('de')
     expect(wrapper.state().districts.length).toEqual(14);
@@ -52,22 +50,36 @@ describe('App Component', () =>  {
 
   });
 
-  test('should contain valid sub component', () => {
+  test('should contain valid sub components', () => {
     expect(wrapper.find(Header).length).toEqual(1);
     expect(wrapper.find(Search).length).toEqual(1);
     expect(wrapper.find(DistrictList).length).toEqual(1);
   });
 
+  test('should correctly add the 1st district to showdown', () => {
+    expect(wrapper.state().districtShowDown.length).toEqual(0);
+    wrapper.instance().addDistrictToShowDown('COLORADO', false)
+    expect(wrapper.state().districtShowDown.length).toEqual(0);
+    wrapper.instance().addDistrictToShowDown('COLORADO', true)
+    expect(wrapper.state().districtShowDown.length).toEqual(1);
+  });
 
-  //
-  //
-  // test('array should contain valid data sets', () => {
-  //   expect(wrapper.instance().props.districtShowDown[0].location).toEqual('COLORADO');
-  //   expect(wrapper.instance().props.districtShowDown[1].location).toEqual('ACADEMY 20');
-  // });
-  //
-  // test('should output 14 districts', () => {
-  //   expect(wrapper.find(District).length).toEqual(14);
-  // });
+  test('should correctly add the 2ND district to showdown', () => {
+    expect(wrapper.state().districtShowDown.length).toEqual(1);
+    wrapper.instance().addDistrictToShowDown('ACADEMY 20', true)
+    expect(wrapper.state().districtShowDown.length).toEqual(2);
+  });
+
+  test('should NOT add a 3rd district to showdown', () => {
+    expect(wrapper.state().districtShowDown.length).toEqual(2);
+    wrapper.instance().addDistrictToShowDown('DENVER COUNTY 1', true)
+    expect(wrapper.state().districtShowDown.length).toEqual(2);
+  });
+
+  test('should remove a district if trying to add it and already existed', () => {
+    expect(wrapper.state().districtShowDown.length).toEqual(2);
+    wrapper.instance().addDistrictToShowDown('ACADEMY 20', true)
+    expect(wrapper.state().districtShowDown.length).toEqual(1);
+  });
 
 });
