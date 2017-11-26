@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
 import DistrictList from './DistrictList'
-import Search from './Search'
-import Header from './Header'
+import Search from './Search';
+import Header from './Header';
 import DistrictRepository from './helper.js';
 import kinderData from '../data/kindergartners_in_full_day_program.js';
 
