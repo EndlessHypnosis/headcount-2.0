@@ -52,15 +52,15 @@ class App extends Component {
   render() {
     return (
       <div className="app-wrapper">
-        <Header districtShowDown={ this.state.districtShowDown } />
+        <Header districtShowDown={this.state.districtShowDown} />
         <div className="main-section">
           <div className="main-header">
             <p className="main-title">Districts</p>
-            <Search searchForDistricts={ this.searchForDistricts.bind(this) } />
+            <Search searchForDistricts={this.searchForDistricts.bind(this)} />
           </div>
-          <DistrictList districts={ this.state.districts }
-                        districtShowDown={ this.state.districtShowDown }
-                        addDistrictToShowDown={ this.addDistrictToShowDown.bind(this) }
+          <DistrictList districts={this.state.districts}
+            districtShowDown={this.state.districtShowDown}
+            addDistrictToShowDown={this.addDistrictToShowDown.bind(this)}
           />
         </div>
       </div>

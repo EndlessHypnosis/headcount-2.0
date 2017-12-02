@@ -32,8 +32,8 @@ export default class District extends Component {
       this.cardBio.style.display = 'flex'
       this.cardBio.className = 'card-bio'
       this.cardHeader.className = (this.isDistrictNotInShowDown())
-                                  ? 'card-header'
-                                  : 'card-header card-selected'
+        ? 'card-header'
+        : 'card-header card-selected'
       this.setState({
         shouldIExpand: true
       })
@@ -54,11 +54,11 @@ export default class District extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     this.cardHeader.className = (this.isDistrictNotInShowDown())
-                                ? 'card-header'
-                                : 'card-header card-selected'
+      ? 'card-header'
+      : 'card-header card-selected'
     this.cardBio.style.display = (this.state.shouldIExpand)
-                                ? 'flex'
-                                : 'none'
+      ? 'flex'
+      : 'none'
   }
 
   render() {
@@ -67,23 +67,23 @@ export default class District extends Component {
 
     return (
       <div className="card yes-flex" ref={(element) => this.cardWrapper = element}>
-        <div  className="card-header" onClick={this.handleClick.bind(this)}
-              ref={(element) => this.cardHeader = element}>
-            <p className="info-back">{ location }</p>
-            <div className="info-rank-wrapper">
-              <p className="info-rank">Avg</p>
-              <p className="info-rank-sub">{ average }</p>
-            </div>
+        <div className="card-header" onClick={this.handleClick.bind(this)}
+          ref={(element) => this.cardHeader = element}>
+          <p className="info-back">{location}</p>
+          <div className="info-rank-wrapper">
+            <p className="info-rank">Avg</p>
+            <p className="info-rank-sub">{average}</p>
+          </div>
         </div>
         <div className="card-bio" ref={(element) => this.cardBio = element}>
-          { years.map((year, i) =>
-              <div className="card-bio-detail" key={`${location}-${year}`}>
-                <span className="card-bio-year">{year}</span>
-                <span className={ parseFloat(data[year]) < 0.5  ?
-                                  "card-bio-year-red" :
-                                  "card-bio-year-green" }>{data[year]}</span>
-              </div>
-            )
+          {years.map((year, i) =>
+            <div className="card-bio-detail" key={`${location}-${year}`}>
+              <span className="card-bio-year">{year}</span>
+              <span className={parseFloat(data[year]) < 0.5 ?
+                "card-bio-year-red" :
+                "card-bio-year-green"}>{data[year]}</span>
+            </div>
+          )
           }
         </div>
       </div>
