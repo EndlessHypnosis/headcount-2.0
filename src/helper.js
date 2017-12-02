@@ -16,7 +16,7 @@ export default class DistrictRepository {
       }, 0.0)
 
       const districtAvg = districtSum / districtYears.length;
-      let newDistrictObj = Object.assign({}, formattedData[districtName], {average: districtAvg.toFixed(3)})
+      let newDistrictObj = Object.assign({}, formattedData[districtName], { average: districtAvg.toFixed(3) })
       acum[districtName] = newDistrictObj
       return acum;
     }, {})
@@ -27,8 +27,8 @@ export default class DistrictRepository {
   formatData(unformattedData) {
     const formattedData = unformattedData.reduce((acum, district) => {
       // doesn't exist
-      if(!acum[district.Location]) {
-        acum[district.Location] = {location: district.Location.toUpperCase(), data: {}};
+      if (!acum[district.Location]) {
+        acum[district.Location] = { location: district.Location.toUpperCase(), data: {} };
       }
       // already exists
       const unroundedData = parseFloat(district.Data);
