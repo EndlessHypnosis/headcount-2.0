@@ -1,7 +1,7 @@
 import DistrictRepository from '../../src/helper.js';
 import kinderData from '../../data/kindergartners_in_full_day_program.js';
 
-describe('DistrictRepository iteration 1 - part 1', () =>  {
+describe('DistrictRepository iteration 1 - part 1', () => {
   const district = new DistrictRepository(kinderData);
 
   test('findByName returns undefined if no arguments are provided', () => {
@@ -31,14 +31,14 @@ describe('DistrictRepository iteration 1 - part 1', () =>  {
   });
 
   test('district data is rounded to the nearest hundredth', () => {
-    const result = {"2004": "0.302", "2005": "0.267", "2006": "0.354", "2007": "0.392", "2008": "0.385", "2009": "0.390", "2010": "0.436", "2011": "0.489", "2012": "0.479", "2013": "0.488", "2014": "0.490"}
+    const result = { "2004": "0.302", "2005": "0.267", "2006": "0.354", "2007": "0.392", "2008": "0.385", "2009": "0.390", "2010": "0.436", "2011": "0.489", "2012": "0.479", "2013": "0.488", "2014": "0.490" }
     const academy = district.findByName('ACADEmY 20');
     expect(academy.data).toEqual(result);
   });
 
   test('district data is sanitized and defaults to 0', () => {
     const academy = district.findByName('ARICKAREE R-2');
-    const result = {"2004": "1.000", "2005": "0.000", "2006": "0.125", "2007": "0.000", "2008": "1.000", "2009": "1.000", "2010": "1.000", "2011": "1.000", "2012": "1.000", "2013": "1.000", "2014": "1.000"}
+    const result = { "2004": "1.000", "2005": "0.000", "2006": "0.125", "2007": "0.000", "2008": "1.000", "2009": "1.000", "2010": "1.000", "2011": "1.000", "2012": "1.000", "2013": "1.000", "2014": "1.000" }
     expect(academy.data).toEqual(result)
   });
 
