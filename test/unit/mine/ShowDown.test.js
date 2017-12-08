@@ -4,7 +4,7 @@ import DistrictRepository from '../../../src/helper.js';
 import kinderData from '../../../data/kindergartners_in_full_day_program.js';
 import { shallow, mount } from 'enzyme'
 
-describe('ShowDown Component', () =>  {
+describe('ShowDown Component', () => {
   let wrapper;
 
   beforeAll(() => {
@@ -34,7 +34,7 @@ describe('ShowDown Component', () =>  {
     expect(wrapper.find('.ratio-detail').exists()).toEqual(true);
     expect(wrapper.find('.ratio-detail').text()).toEqual('1.302');
   });
-  
+
   test('show down should output 2 cards', () => {
     expect(wrapper.find('.card-bio-detail').length).toEqual(11);
   });

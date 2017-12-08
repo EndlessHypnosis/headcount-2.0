@@ -4,7 +4,7 @@ import DistrictRepository from '../../../src/helper.js';
 import kinderData from '../../../data/kindergartners_in_full_day_program.js';
 import { shallow, mount } from 'enzyme'
 
-describe('DistrictList Component', () =>  {
+describe('DistrictList Component', () => {
   let wrapper;
   let districtRepo;
   let districtArray;
@@ -20,13 +20,13 @@ describe('DistrictList Component', () =>  {
     mockFn = jest.fn();
 
     wrapper = shallow(<District
-                        location={ districtA.location }
-                        average={ districtA.average }
-                        data={ districtA.data }
-                        startExpanded={ false }
-                        districtShowDown={ districtArray }
-                        addDistrictToShowDown={ mockFn }
-                      />);
+      location={districtA.location}
+      average={districtA.average}
+      data={districtA.data}
+      startExpanded={false}
+      districtShowDown={districtArray}
+      addDistrictToShowDown={mockFn}
+    />);
   });
 
   test('should exist', () => {
